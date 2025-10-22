@@ -2,25 +2,16 @@ const sql = require('mssql');
 
 // SQL Server configuration
 const config = {
-    //user: process.env.USERNAME, // Replace with your SQL Server username
-   // password: process.env.PASSWORD, // Replace with your SQL Server password
-    server: process.env.DB_SERVER, // Replace with your server name and instance (e.g., 'localhost\\SQLEXPRESS')
+    server: process.env.DB_SERVER, 
     database: process.env.DB_NAME, 
     user: process.env.USER,
     password: process.env.PASSWORD,
     options: {
-        encrypt: false, // For local connections, set to true for Azure SQL Database
+        encrypt: false, // set to true for Azure 
         enableArithAbort: true,
-        trustServerCertificate: true // Change to true for local dev / self-signed certs
+        trustServerCertificate: true // true for local dev 
     },
     port:parseInt(process.env.DB_PORT) || 1433,
-    // authentication: {
-    // type: 'ntlm',
-    // options: {
-    //   domain: process.env.DOMAIN || '', // leave empty if not on a domain
-    //   userName: process.env.USER || '', // or leave blank to use your Windows login
-    //   password: process.env.PASSWORD || ''
-    // }}
     
 };
 
