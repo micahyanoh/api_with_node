@@ -1,7 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { sql, poolPromise } = require('./config/db');
 const userRoutes = require("./routes/user.js");
 
 const app = express();
