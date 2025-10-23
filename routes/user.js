@@ -1,11 +1,13 @@
-const express = require("express");
+import express from "express";
 const router = express.Router();
-const {sql, 
-   poolPromise,
-    executeQuery,
-  executeTableValuedQuery } = require('../config/db');
+import {
+  sql,
+  poolPromise,
+  executeQuery,
+  executeTableValuedQuery,
+} from "../config/db.js";
 
-router.get("/allAppUsers", async (req, res) => {
+router.get("/allAppUsers", async (req, res, next) => {
   const query = "SELECT * FROM tb_app_user";
   const values = [];
   const paramNames = [];
@@ -24,5 +26,4 @@ router.get("/allAppUsers", async (req, res) => {
   }
 });
 
-
-module.exports = {router };
+export default router;
